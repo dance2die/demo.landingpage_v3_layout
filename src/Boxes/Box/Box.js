@@ -45,7 +45,16 @@ function Box({ name, title, body }) {
       onClick={() => setClickedBox(name)}
     >
       <Title title={title} />
-      {clickedBoxes[name] && <Body>{body}</Body>}
+      {clickedBoxes[name] && (
+        <Body>
+          <div>
+            {body}
+            <button className="close-button" type="button">
+              Close
+            </button>
+          </div>
+        </Body>
+      )}
     </BaseBox>
   );
 }

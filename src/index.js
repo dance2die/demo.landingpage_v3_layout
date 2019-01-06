@@ -7,8 +7,8 @@ import "./styles/styles.scss";
 
 /*
 @todo
-* 👷‍♂️ Prevent click on Link click.
-
+* 👷‍♂️ Add "close" button on clicked/open box
+* ✅ Prevent click on Link click.
 * ✅ Make boxes unclickable for mobile
     ✅ If already clicked, then unclick before turning into a mobile mode.
 * ✅ Update titles
