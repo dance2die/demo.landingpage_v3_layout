@@ -7,8 +7,10 @@ import "./styles.scss";
 
 /*
 @todo
-* 👷‍♂️ box Make boxes unclickable for mobile
-  * If already clicked, then unclick before turning into a mobile mode.
+* 👷‍♂️ Prevent click on Link click.
+
+* ✅ Make boxes unclickable for mobile
+    ✅ If already clicked, then unclick before turning into a mobile mode.
 * ✅ Update titles
   * ✅ Blog -> Writings
   * ✅ Social Networking Sites -> Social
