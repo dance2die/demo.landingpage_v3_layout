@@ -1,8 +1,10 @@
 $goldenRatio: 1.6180339887498948482;
-$centerHeight: 300;
+$centerHeight: 400;
 $centerWidth: $centerHeight * $goldenRatio;
-$boxHeight: 100;
-$boxWidth: $boxHeight * $goldenRatio;
+// $boxHeight: 100;
+// $boxWidth: $boxHeight * $goldenRatio;
+$boxHeight: 100%;
+$boxWidth: 100%;
 $boxBorderRadius: 6px;
 
 $box-blog-color: red;
@@ -10,6 +12,15 @@ $box-social-color: blue;
 $box-github-color: green;
 $box-misc-color: cyan;
 
+// @mixin transform($property) {
+//   -webkit-transform: $property;
+//   -ms-transform: $property;
+//   transform: $property;
+@mixin onClick() {
+  transform: scale(2.5);
+  grid-area: boxCenter;
+  z-index: 2;
+}
 
 body, html {
   margin: 0;
@@ -43,11 +54,13 @@ body, html {
   grid-area: center;
 
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   // prettier-ignore
-  grid:
-    "one   .  two " 1fr 
-    "three .  four" 1fr 
-    / 1fr 1fr 1fr;
+  grid-template-rows: 1fr minmax(0.2fr, 100%) 1fr;
+  grid-template-areas: 
+    "one   .            two "
+    ".     boxCenter    .   "
+    "three .            four";
 
   @media (max-width: 512px) {
     // prettier-ignore
@@ -60,11 +73,11 @@ body, html {
 }
 
 .box {
-  width: $boxWidth * 1px;
-  height: $boxHeight * 1px;
+  width: $boxWidth;
+  height: $boxHeight;
   border-radius: $boxBorderRadius;
   position: relative;
-  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .title {
     color: white;
@@ -79,9 +92,13 @@ body, html {
     grid-area: one;
 
     &.clicked {
-      left: 0;
-      top: 0;
-      transform: scale(2.5) translate(40%, 40%);
+      // // left: 0;
+      // // top: 0;
+      // // transform: scale(2.5) translate(40%, 40%);
+      // transform: scale(2.5);
+      // grid-area: boxCenter;
+      // z-index: 2;
+      @include onClick();
     }
   }
 
@@ -91,9 +108,10 @@ body, html {
     align-self: end;
 
     &.clicked {
-      left: 0;
-      top: 0;
-      transform: scale(2.5) translate(40%, -40%);
+      // left: 0;
+      // top: 0;
+      // transform: scale(2.5) translate(40%, -40%);
+      @include onClick();
     }
   }
 
@@ -103,9 +121,10 @@ body, html {
     justify-self: end;
 
     &.clicked {
-      left: 0;
-      top: 0;
-      transform: scale(2.5) translate(-40%, 40%);
+      // left: 0;
+      // top: 0;
+      // transform: scale(2.5) translate(-40%, 40%);
+      @include onClick();
     }
   }
 
@@ -116,9 +135,10 @@ body, html {
     align-self: end;
 
     &.clicked {
-      left: 0;
-      top: 0;
-      transform: scale(2.5) translate(-40%, -40%);
+      // left: 0;
+      // top: 0;
+      // transform: scale(2.5) translate(-40%, -40%);
+      @include onClick();
     }
   }
 
@@ -135,3 +155,5 @@ body, html {
   -moz-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
   box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
 }
+
+
