@@ -58,5 +58,18 @@ function SocialBox() {
   );
 }
 
+// Social networking sites like Twitter, Instangram, etc...
+function MiscBox() {
+  const defaultToggleClassName = "clicked";
+  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
+
+  return (
+    <Box className={classNames(["misc", className])} onClick={toggle}>
+      <Title title="Miscellaneous" />
+      {className && <Body>Miscellaneous Body~~~</Body>}
+    </Box>
+  );
+}
+
 // GitHub, Gitlab, CodeSandbox, etc...
-export { WritingsBox, SocialBox, CreationsBox };
+export { WritingsBox, SocialBox, CreationsBox, MiscBox };

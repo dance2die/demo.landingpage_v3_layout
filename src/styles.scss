@@ -3,11 +3,12 @@ $centerHeight: 300;
 $centerWidth: $centerHeight * $goldenRatio;
 $boxHeight: 100;
 $boxWidth: $boxHeight * $goldenRatio;
+$boxBorderRadius: 6px;
 
 $box-blog-color: red;
 $box-social-color: blue;
 $box-github-color: green;
-$box-sourcerer-color: cyan;
+$box-misc-color: cyan;
 
 
 body, html {
@@ -61,7 +62,7 @@ body, html {
 .box {
   width: $boxWidth * 1px;
   height: $boxHeight * 1px;
-  border-radius: 10px;
+  border-radius: $boxBorderRadius;
   position: relative;
   transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -80,7 +81,7 @@ body, html {
     &.clicked {
       left: 0;
       top: 0;
-      transform: scale(2.5) translate(40%, 40%) ;
+      transform: scale(2.5) translate(40%, 40%);
     }
   }
 
@@ -92,7 +93,7 @@ body, html {
     &.clicked {
       left: 0;
       top: 0;
-      transform: scale(2.5) translate(40%, -40%) ;
+      transform: scale(2.5) translate(40%, -40%);
     }
   }
 
@@ -104,12 +105,12 @@ body, html {
     &.clicked {
       left: 0;
       top: 0;
-      transform: scale(2.5) translate(-40%, 40%) ;
+      transform: scale(2.5) translate(-40%, 40%);
     }
   }
 
-  &.sourcerer {
-    background-color: $box-sourcerer-color;
+  &.misc {
+    background-color: $box-misc-color;
     grid-area: four;
     justify-self: end;
     align-self: end;
@@ -117,7 +118,7 @@ body, html {
     &.clicked {
       left: 0;
       top: 0;
-      transform: scale(2.5) translate(40%, -40%) ;
+      transform: scale(2.5) translate(-40%, -40%);
     }
   }
 
@@ -134,5 +135,3 @@ body, html {
   -moz-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
   box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
 }
-
-

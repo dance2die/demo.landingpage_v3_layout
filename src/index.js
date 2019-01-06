@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { WritingsBox, CreationsBox, SocialBox } from "./Box";
+import { WritingsBox, CreationsBox, SocialBox, MiscBox } from "./Box";
 
 import "./styles.scss";
 
@@ -12,9 +12,7 @@ function App() {
         <WritingsBox />
         <CreationsBox />
         <SocialBox />
-        {/* <SocialBox />
-        <GithubBox />
-        <SourcererBox /> */}
+        <MiscBox />
       </article>
     </section>
   );
