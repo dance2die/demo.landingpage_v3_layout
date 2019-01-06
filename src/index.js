@@ -22,7 +22,7 @@ import "./styles.scss";
   * ✅ Miscellaneous -> Misc.
 
 * Add details
-  * Writings
+  * ️👷‍♂️ Writings
     * SlightEdgeCoder
     * Dev.to
     * Medium

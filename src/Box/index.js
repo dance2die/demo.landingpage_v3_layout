@@ -89,14 +89,42 @@ function ClickableBox({ name, title, body }) {
   );
 }
 
+function ExternalLink({ url, ...rest }) {
+  // For rel="noreferrer", refer to
+  // https://developers.google.com/web/tools/lighthouse/audits/noopener#recommendations
+  return <a href={url} target="_blank" rel="noreferrer" {...rest} />;
+}
+
 // Personal blog, dev.to, medium ,etc...
 function WritingsBox() {
+  function Body() {
+    return (
+      <ul>
+        <li>
+          <ExternalLink url="https://www.slightedgecoder.com/">
+            <i class="fas fa-blog" />
+            Personal Blog
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink url="https://dev.to/dance2die">
+            {/* https://fontawesome.com/icons/dev?style=brands */}
+            <i class="fab fa-dev" />
+            dev.to
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink url="https://medium.com/@dance2die">
+            <i class="fab fa-medium" />
+            Medium
+          </ExternalLink>
+        </li>
+      </ul>
+    );
+  }
+
   return (
-    <ClickableBox
-      name={names.WritingsBox}
-      title="Writings"
-      body={<div>WritingsBox Body~~~</div>}
-    />
+    <ClickableBox name={names.WritingsBox} title="Writings" body={<Body />} />
   );
 }
 
