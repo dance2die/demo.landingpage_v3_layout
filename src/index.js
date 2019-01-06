@@ -11,7 +11,7 @@ function useClassNameToggle(toggleClassName) {
 
   function toggle() {
     if (className) setBlogBoxClicked("");
-    else setBlogBoxClicked(toggleClassName);
+    else setBlogBoxClicked(classNames(toggleClassName, "shadow"));
   }
 
   return { className, toggle };

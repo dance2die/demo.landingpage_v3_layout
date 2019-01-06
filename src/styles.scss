@@ -38,7 +38,7 @@ body, html {
 }
 
 .container {
-  border: 1px solid blue;
+  // border: 1px solid blue;
   grid-area: center;
 
   display: grid;
@@ -78,6 +78,13 @@ body, html {
   transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+// https://www.cssmatic.com/box-shadow
+.shadow {
+-webkit-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
+-moz-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
+box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
+}
+
 .blog-box-clicked {
   left: 0;
   top: 0;
@@ -102,26 +109,3 @@ body, html {
   justify-self: end;
   align-self: end;
 }
-
-
-// const BlogBox = styled(StyledBox)`
-//   background-color: red;
-//   grid-area: one;
-// `;
-// const SocialBox = styled(StyledBox)`
-//   background-color: green;
-//   grid-area: two;
-//   justify-self: end;
-// `;
-// const GithubBox = styled(StyledBox)`
-//   background-color: blue;
-//   grid-area: three;
-//   align-self: end;
-// `;
-// const SourcererBox = styled(StyledBox)`
-//   background-color: cyan;
-//   grid-area: four;
-//   justify-self: end;
-//   align-self: end;
-// `;
-
