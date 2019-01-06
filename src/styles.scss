@@ -1,3 +1,5 @@
+@import 'reset';
+
 /* media related */
 $max-width: 650px;
 // https://davidwalsh.name/write-media-queries-sass
@@ -22,13 +24,23 @@ $box-misc-color: cyan;
   grid-area: boxCenter;
   z-index: 2;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   @media #{$mobile} {
     grid-area: auto;
     transform: scale(1);
   }
 }
 
-body, html {
+/* 
+
+Global Settings
+
+*/
+body, html, h1 {
   margin: 0;
   padding: 0;
 }
@@ -37,6 +49,15 @@ body, html {
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
+
+
+/*
+  Box related
+*/
 
 .layout {
   height: 100vh;
@@ -85,7 +106,13 @@ body, html {
   position: relative;
   transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
   .title {
+    font-size: 3rem;
     color: white;
 
     @media #{$mobile} {
@@ -103,6 +130,7 @@ body, html {
 
     &.clicked {
       @include onClick();
+      // font-size: 1.5rem;
     }
   }
 
