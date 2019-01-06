@@ -1,21 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import classNames from "classnames";
 
+import { useClassNameToggle } from "./hooks";
+
 import "./styles.scss";
-
-const log = console.log;
-
-function useClassNameToggle(toggleClassName) {
-  const [className, setBlogBoxClicked] = useState("");
-
-  function toggle() {
-    if (className) setBlogBoxClicked("");
-    else setBlogBoxClicked(classNames(toggleClassName, "shadow"));
-  }
-
-  return { className, toggle };
-}
 
 function Box({ className, onClick, children }) {
   return (
