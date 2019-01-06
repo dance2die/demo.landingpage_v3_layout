@@ -82,7 +82,7 @@ body, html {
     color: hotpink;
   }
 
-  &.blog {
+  &.WritingsBox {
     background-color: $box-blog-color;
     grid-area: one;
 
@@ -91,7 +91,7 @@ body, html {
     }
   }
 
-  &.github {
+  &.CreationsBox {
     background-color: $box-github-color;
     grid-area: three;
     align-self: end;
@@ -101,7 +101,7 @@ body, html {
     }
   }
 
-  &.social {
+  &.SocialBox {
     background-color: $box-social-color;
     grid-area: two;
     justify-self: end;
@@ -111,7 +111,7 @@ body, html {
     }
   }
 
-  &.misc {
+  &.MiscBox {
     background-color: $box-misc-color;
     grid-area: four;
     justify-self: end;

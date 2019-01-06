@@ -1,23 +1,56 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import classNames from "classnames";
 
-import { useClassNameToggle } from "../hooks";
-
 const BoxContext = createContext();
 
+const names = {
+  WritingsBox: "WritingsBox",
+  CreationsBox: "CreationsBox",
+  SocialBox: "SocialBox",
+  MiscBox: "MiscBox"
+};
+
 function BoxContainer({ children }) {
-  const [clickedBox, setClickedBox] = useState("");
-  const value = { clickedBox, setClickedBox };
+  const resetClicked = () =>
+    Object.keys(names).reduce((map, name) => {
+      map[name] = false;
+      return map;
+    }, {});
+
+  const [clickedBoxes, setClickedBoxes] = useState(resetClicked());
+
+  // Turn only one box on
+  const setClickedBox = boxName => {
+    const previous = clickedBoxes[boxName];
+    setClickedBoxes({ ...resetClicked(), [boxName]: !previous });
+  };
+
+  const contextValue = { clickedBoxes, setClickedBox };
 
   return (
-    <BoxContext.Provider value={value}>
-      <article className="container">{children}</article>
+    <BoxContext.Provider value={contextValue}>
+      <article className="container">
+        <WritingsBox />
+        <CreationsBox />
+        <SocialBox />
+        <MiscBox />
+      </article>
     </BoxContext.Provider>
   );
 }
 
 function Box({ name, className, onClick, ...rest }) {
-  const { clickedBox, setClickedBox } = useContext(BoxContext);
+  const { clickedBox } = useContext(BoxContext);
+
+  useEffect(
+    () => {
+      // Unclick other boxes
+      if (clickedBox !== name) {
+        classNames(className, { clicked: false });
+      }
+    },
+    [clickedBox]
+  );
 
   return (
     <div className={classNames("box", className)} onClick={onClick} {...rest} />
@@ -32,73 +65,81 @@ function Body({ ...rest }) {
   return <section className="body" {...rest} />;
 }
 
+function getBoxClass(boxName) {
+  const { clickedBoxes } = useContext(BoxContext);
+
+  return clickedBoxes[boxName]
+    ? classNames(boxName, "clicked", "shadow")
+    : classNames(boxName);
+}
+
 // Personal blog, dev.to, medium ,etc...
 function WritingsBox() {
-  const defaultToggleClassName = "clicked";
-  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
+  const name = names.WritingsBox;
+  const { clickedBoxes, setClickedBox } = useContext(BoxContext);
 
   return (
     <Box
-      name="WritingsBox"
-      className={classNames(["blog", className])}
-      onClick={toggle}
+      name={name}
+      className={getBoxClass(name)}
+      onClick={() => setClickedBox(name)}
     >
       <Title title="Writings" />
-      {className && <Body>Box Body~~~</Body>}
+      {clickedBoxes[name] && <Body>WritingsBox Body~~~</Body>}
     </Box>
   );
 }
 
 // GitHub, Gitlab, CodeSandbox, etc...
 function CreationsBox() {
-  const defaultToggleClassName = "clicked";
-  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
+  const name = names.CreationsBox;
+  const { clickedBoxes, setClickedBox } = useContext(BoxContext);
 
   return (
     <Box
-      name="CreationsBox"
-      className={classNames(["github", className])}
-      onClick={toggle}
+      name={name}
+      className={getBoxClass(name)}
+      onClick={() => setClickedBox(name)}
     >
       <Title title="Creations" />
-      {className && <Body>GitHub Body~~~</Body>}
+      {clickedBoxes[name] && <Body>Creations Body~~~</Body>}
     </Box>
   );
 }
 
 // Social networking sites like Twitter, Instangram, etc...
 function SocialBox() {
-  const defaultToggleClassName = "clicked";
-  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
+  const name = names.SocialBox;
+  const { clickedBoxes, setClickedBox } = useContext(BoxContext);
 
   return (
     <Box
-      name="SocialBox"
-      className={classNames(["social", className])}
-      onClick={toggle}
+      name={name}
+      className={getBoxClass(name)}
+      onClick={() => setClickedBox(name)}
     >
       <Title title="Social Networking" />
-      {className && <Body>GitHub Body~~~</Body>}
+      {clickedBoxes[name] && <Body>Social Networking Body~~~</Body>}
     </Box>
   );
 }
 
 // Social networking sites like Twitter, Instangram, etc...
 function MiscBox() {
-  const defaultToggleClassName = "clicked";
-  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
+  const name = names.MiscBox;
+  const { clickedBoxes, setClickedBox } = useContext(BoxContext);
 
   return (
     <Box
-      name="MiscBox"
-      className={classNames(["misc", className])}
-      onClick={toggle}
+      name={name}
+      className={getBoxClass(name)}
+      onClick={() => setClickedBox(name)}
     >
       <Title title="Miscellaneous" />
-      {className && <Body>Miscellaneous Body~~~</Body>}
+      {clickedBoxes[name] && <Body>Miscellaneous Body~~~</Body>}
     </Box>
   );
 }
 
 // GitHub, Gitlab, CodeSandbox, etc...
-export { BoxContainer, WritingsBox, SocialBox, CreationsBox, MiscBox };
+export { BoxContainer, WritingsBox, SocialBox, CreationsBox, MiscBox, names };
