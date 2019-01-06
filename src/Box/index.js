@@ -19,7 +19,8 @@ function Body({ ...rest }) {
   return <section className="body" {...rest} />;
 }
 
-function BlogBox() {
+// Personal blog, dev.to, medium ,etc...
+function WritingsBox() {
   const defaultToggleClassName = "clicked";
   const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
@@ -31,16 +32,31 @@ function BlogBox() {
   );
 }
 
-function GithubBox() {
+// GitHub, Gitlab, CodeSandbox, etc...
+function CreationsBox() {
   const defaultToggleClassName = "clicked";
   const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
   return (
     <Box className={classNames(["github", className])} onClick={toggle}>
-      <Title title="GitHub" />
+      <Title title="Creations" />
       {className && <Body>GitHub Body~~~</Body>}
     </Box>
   );
 }
 
-export { BlogBox, GithubBox };
+// Social networking sites like Twitter, Instangram, etc...
+function SocialBox() {
+  const defaultToggleClassName = "clicked";
+  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
+
+  return (
+    <Box className={classNames(["social", className])} onClick={toggle}>
+      <Title title="Social Networking" />
+      {className && <Body>GitHub Body~~~</Body>}
+    </Box>
+  );
+}
+
+// GitHub, Gitlab, CodeSandbox, etc...
+export { WritingsBox, SocialBox, CreationsBox };

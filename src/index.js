@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { BlogBox, GithubBox } from "./Box";
+import { WritingsBox, CreationsBox, SocialBox } from "./Box";
 
 import "./styles.scss";
 
@@ -9,8 +9,9 @@ function App() {
   return (
     <section className="layout">
       <article className="container">
-        <BlogBox />
-        <GithubBox />
+        <WritingsBox />
+        <CreationsBox />
+        <SocialBox />
         {/* <SocialBox />
         <GithubBox />
         <SourcererBox /> */}
