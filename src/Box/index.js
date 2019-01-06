@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import classNames from "classnames";
 
 import { useClassNameToggle } from "../hooks";
@@ -18,9 +18,28 @@ function BoxContainer({ children }) {
 
 function Box({ name, className, onClick, ...rest }) {
   const { clickedBox, setClickedBox } = useContext(BoxContext);
+  const moveAwayClassName = "move-away";
+  const [moveAwayClass, setMoveAwayClass] = useState(moveAwayClassName);
+
+  //   useEffect(
+  //     () => {
+  //       if (clickedBox === name) {
+  //         setMoveAwayClass("");
+  //         // Let's keep only currently clicked box as clicked and rest as unclicked.
+  //         classNames(className, { clicked: false });
+  //       } else {
+  //         setMoveAwayClass(moveAwayClassName);
+  //       }
+  //     },
+  //     [clickedBox]
+  //   );
 
   return (
-    <div className={classNames("box", className)} onClick={onClick} {...rest} />
+    <div
+      className={classNames("box", className, moveAwayClass)}
+      onClick={onClick}
+      {...rest}
+    />
   );
 }
 
