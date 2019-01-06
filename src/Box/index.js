@@ -20,15 +20,27 @@ function Body({ ...rest }) {
 }
 
 function BlogBox() {
-  const defaultToggleClassName = "blog-box-clicked";
+  const defaultToggleClassName = "clicked";
   const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
   return (
-    <Box className={classNames(["blog-box", className])} onClick={toggle}>
+    <Box className={classNames(["blog", className])} onClick={toggle}>
       <Title title="Writings" />
       {className && <Body>Box Body~~~</Body>}
     </Box>
   );
 }
 
-export { BlogBox, Title, Body };
+function GithubBox() {
+  const defaultToggleClassName = "clicked";
+  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
+
+  return (
+    <Box className={classNames(["github", className])} onClick={toggle}>
+      <Title title="GitHub" />
+      {className && <Body>GitHub Body~~~</Body>}
+    </Box>
+  );
+}
+
+export { BlogBox, GithubBox };

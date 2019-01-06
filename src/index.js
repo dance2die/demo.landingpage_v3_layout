@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { BlogBox } from "./Box";
+import { BlogBox, GithubBox } from "./Box";
 
 import "./styles.scss";
 
@@ -10,6 +10,7 @@ function App() {
     <section className="layout">
       <article className="container">
         <BlogBox />
+        <GithubBox />
         {/* <SocialBox />
         <GithubBox />
         <SourcererBox /> */}

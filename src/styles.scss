@@ -63,6 +63,7 @@ body, html {
   height: $boxHeight * 1px;
   border-radius: 10px;
   position: relative;
+  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .title {
     color: white;
@@ -72,6 +73,53 @@ body, html {
     color: blue;
   }
 
+  &.blog {
+    background-color: $box-blog-color;
+    grid-area: one;
+
+    &.clicked {
+      left: 0;
+      top: 0;
+      transform: scale(2.5) translate(40%, 40%) ;
+    }
+  }
+
+  &.github {
+    background-color: $box-github-color;
+    grid-area: three;
+    align-self: end;
+
+    &.clicked {
+      left: 0;
+      top: 0;
+      transform: scale(2.5) translate(40%, -40%) ;
+    }
+  }
+
+  &.social {
+    background-color: $box-social-color;
+    grid-area: two;
+    justify-self: end;
+
+    &.clicked {
+      left: 0;
+      top: 0;
+      transform: scale(2.5) translate(40%, -40%) ;
+    }
+  }
+
+  &.sourcerer {
+    background-color: $box-sourcerer-color;
+    grid-area: four;
+    justify-self: end;
+    align-self: end;
+
+    &.clicked {
+      left: 0;
+      top: 0;
+      transform: scale(2.5) translate(40%, -40%) ;
+    }
+  }
 
   @media (max-width: 512px) {
     width: 100%;
@@ -80,40 +128,11 @@ body, html {
   }
 }
 
-.blog-box {
-  background-color: $box-blog-color;
-  grid-area: one;
-  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
 // https://www.cssmatic.com/box-shadow
 .shadow {
--webkit-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
--moz-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
+  -webkit-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
+  -moz-box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
+  box-shadow: 0px 0px 47px -5px rgba(0,0,0,0.81);
 }
 
-.blog-box-clicked {
-  left: 0;
-  top: 0;
-  transform: scale(2.5) translate(40%, 40%) ;
-}
 
-.social-box {
-  background-color: $box-social-color;
-  grid-area: two;
-  justify-self: end;
-}
-
-.github-box {
-  background-color: $box-github-color;
-  grid-area: three;
-  align-self: end;
-}
-
-.sourcerer-box {
-  background-color: $box-sourcerer-color;
-  grid-area: four;
-  justify-self: end;
-  align-self: end;
-}
