@@ -21,6 +21,11 @@ $box-misc-color: cyan;
   transform: scale(2);
   grid-area: boxCenter;
   z-index: 2;
+
+  @media #{$mobile} {
+    grid-area: auto;
+    transform: scale(1);
+  }
 }
 
 body, html {
@@ -82,6 +87,10 @@ body, html {
 
   .title {
     color: white;
+
+    @media #{$mobile} {
+      font-size: 3.5rem;
+    }
   }
 
   .body {
