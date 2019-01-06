@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import { BoxContainer, WritingsBox, DevBox, SocialBox, MiscBox } from "./Boxes";
 
-import "./styles.scss";
+import "./styles/styles.scss";
 
 /*
 @todo
