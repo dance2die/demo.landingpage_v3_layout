@@ -64,6 +64,14 @@ body, html {
   border-radius: 10px;
   position: relative;
 
+  .title {
+    color: white;
+  }
+
+  .body {
+    color: blue;
+  }
+
 
   @media (max-width: 512px) {
     width: 100%;

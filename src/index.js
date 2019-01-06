@@ -17,25 +17,35 @@ function useClassNameToggle(toggleClassName) {
   return { className, toggle };
 }
 
-function Box({ className, onClick }) {
-  return <div className={classNames("box", className)} onClick={onClick} />;
+function Box({ className, onClick, children }) {
+  return (
+    <div className={classNames("box", className)} onClick={onClick}>
+      {children}
+    </div>
+  );
+}
+
+function BoxTitle({ title }) {
+  return <h1 className="title">{title}</h1>;
+}
+
+function BoxBody({ ...rest }) {
+  return <section className="body" {...rest} />;
 }
 
 function BlogBox() {
-  const defaultBlogBoxClicked = "blog-box-clicked";
-  const { className, toggle } = useClassNameToggle(defaultBlogBoxClicked);
+  const defaultToggleClassName = "blog-box-clicked";
+  const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
   return (
-    <Box className={classNames(["blog-box", className])} onClick={toggle} />
+    <Box className={classNames(["blog-box", className])} onClick={toggle}>
+      <BoxTitle title="Writings" />
+      {className && <BoxBody>Box Body~~~</BoxBody>}
+    </Box>
   );
 }
 
 function App() {
-  // const [blogClass, setBlogClass] = useState("");
-  // const [socialClass, setSocialClass] = useState("");
-  // const [githubClass, setGithubClass] = useState("");
-  // const [sourcererClass, setSourcererClass] = useState("");
-
   return (
     <section className="layout">
       <article className="container">
