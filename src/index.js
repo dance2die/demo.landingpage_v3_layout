@@ -12,15 +12,14 @@ import {
 import "./styles.scss";
 
 function App() {
-  // <BoxContainer>
-  //   <WritingsBox />
-  //   <CreationsBox />
-  //   <SocialBox />
-  //   <MiscBox />
-  // </BoxContainer>
   return (
     <section className="layout">
-      <BoxContainer />
+      <BoxContainer>
+        <WritingsBox />
+        <CreationsBox />
+        <SocialBox />
+        <MiscBox />
+      </BoxContainer>
     </section>
   );
 }

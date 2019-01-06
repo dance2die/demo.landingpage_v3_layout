@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import classNames from "classnames";
 
+const log = console.log;
+
 const BoxContext = createContext();
 
 const names = {
@@ -73,73 +75,63 @@ function getBoxClass(boxName) {
     : classNames(boxName);
 }
 
-// Personal blog, dev.to, medium ,etc...
-function WritingsBox() {
-  const name = names.WritingsBox;
+function ClickableBox({ name, title, body }) {
   const { clickedBoxes, setClickedBox } = useContext(BoxContext);
-
   return (
     <Box
       name={name}
       className={getBoxClass(name)}
       onClick={() => setClickedBox(name)}
     >
-      <Title title="Writings" />
-      {clickedBoxes[name] && <Body>WritingsBox Body~~~</Body>}
+      <Title title={title} />
+      <Body>{clickedBoxes[name] && <Body>{body}</Body>}</Body>
     </Box>
+  );
+}
+
+// Personal blog, dev.to, medium ,etc...
+function WritingsBox() {
+  return (
+    <ClickableBox
+      name={names.WritingsBox}
+      title="Writings"
+      body={<div>WritingsBox Body~~~</div>}
+    />
   );
 }
 
 // GitHub, Gitlab, CodeSandbox, etc...
 function CreationsBox() {
-  const name = names.CreationsBox;
-  const { clickedBoxes, setClickedBox } = useContext(BoxContext);
-
   return (
-    <Box
-      name={name}
-      className={getBoxClass(name)}
-      onClick={() => setClickedBox(name)}
-    >
-      <Title title="Creations" />
-      {clickedBoxes[name] && <Body>Creations Body~~~</Body>}
-    </Box>
+    <ClickableBox
+      name={names.CreationsBox}
+      title="Creations"
+      body={<div>Creations Body~~~</div>}
+    />
   );
 }
 
 // Social networking sites like Twitter, Instangram, etc...
 function SocialBox() {
-  const name = names.SocialBox;
-  const { clickedBoxes, setClickedBox } = useContext(BoxContext);
-
   return (
-    <Box
-      name={name}
-      className={getBoxClass(name)}
-      onClick={() => setClickedBox(name)}
-    >
-      <Title title="Social Networking" />
-      {clickedBoxes[name] && <Body>Social Networking Body~~~</Body>}
-    </Box>
+    <ClickableBox
+      name={names.SocialBox}
+      title="Social Networking Sites"
+      body={<div>Social Networking Body~~~</div>}
+    />
   );
 }
 
 // Social networking sites like Twitter, Instangram, etc...
 function MiscBox() {
-  const name = names.MiscBox;
-  const { clickedBoxes, setClickedBox } = useContext(BoxContext);
-
   return (
-    <Box
-      name={name}
-      className={getBoxClass(name)}
-      onClick={() => setClickedBox(name)}
-    >
-      <Title title="Miscellaneous" />
-      {clickedBoxes[name] && <Body>Miscellaneous Body~~~</Body>}
-    </Box>
+    <ClickableBox
+      name={names.MiscBox}
+      title="Miscellaneous"
+      body={<div>Miscellaneous Body~~~</div>}
+    />
   );
 }
 
 // GitHub, Gitlab, CodeSandbox, etc...
-export { BoxContainer, WritingsBox, SocialBox, CreationsBox, MiscBox, names };
+export { BoxContainer, WritingsBox, SocialBox, CreationsBox, MiscBox };
