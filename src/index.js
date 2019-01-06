@@ -17,15 +17,16 @@ function useClassNameToggle(toggleClassName) {
   return { className, toggle };
 }
 
+function Box({ className, onClick }) {
+  return <div className={classNames("box", className)} onClick={onClick} />;
+}
+
 function BlogBox() {
   const defaultBlogBoxClicked = "blog-box-clicked";
   const { className, toggle } = useClassNameToggle(defaultBlogBoxClicked);
 
   return (
-    <div
-      className={classNames(["box", "blog-box", className])}
-      onClick={toggle}
-    />
+    <Box className={classNames(["blog-box", className])} onClick={toggle} />
   );
 }
 
