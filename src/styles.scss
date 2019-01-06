@@ -1,4 +1,127 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+$goldenRatio: 1.6180339887498948482;
+$centerHeight: 300;
+$centerWidth: $centerHeight * $goldenRatio;
+$boxHeight: 100;
+$boxWidth: $boxHeight * $goldenRatio;
+
+$box-blog-color: red;
+$box-social-color: blue;
+$box-github-color: green;
+$box-sourcerer-color: cyan;
+
+
+body, html {
+  margin: 0;
+  padding: 0;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+
+.layout {
+  height: 100vh;
+  display: grid;
+
+  // prettier-ignore
+  grid:
+    ". . .      " 1fr
+    ". center . " $centerHeight * 1px
+    ". . .      " 1fr
+    / 1fr ($centerWidth * 1px) 1fr;
+
+  @media (max-width: 512px) {
+    // prettier-ignore
+    grid: "center"   100vh / 1fr;
+  }
+}
+
+.container {
+  border: 1px solid blue;
+  grid-area: center;
+
+  display: grid;
+  // prettier-ignore
+  grid:
+    "one   .  two " 1fr 
+    "three .  four" 1fr 
+    / 1fr 1fr 1fr;
+
+  @media (max-width: 512px) {
+    // prettier-ignore
+    grid: "one"   1fr
+          "two"   1fr
+          "three" 1fr
+          "four"  1fr
+         / 1fr;
+  }
+}
+
+.box {
+  width: $boxWidth * 1px;
+  height: $boxHeight * 1px;
+  border-radius: 10px;
+  position: relative;
+
+
+  @media (max-width: 512px) {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.blog-box {
+  background-color: $box-blog-color;
+  grid-area: one;
+  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.blog-box-clicked {
+  left: 0;
+  top: 0;
+  transform: scale(2.5) translate(40%, 40%) ;
+}
+
+.social-box {
+  background-color: $box-social-color;
+  grid-area: two;
+  justify-self: end;
+}
+
+.github-box {
+  background-color: $box-github-color;
+  grid-area: three;
+  align-self: end;
+}
+
+.sourcerer-box {
+  background-color: $box-sourcerer-color;
+  grid-area: four;
+  justify-self: end;
+  align-self: end;
+}
+
+
+// const BlogBox = styled(StyledBox)`
+//   background-color: red;
+//   grid-area: one;
+// `;
+// const SocialBox = styled(StyledBox)`
+//   background-color: green;
+//   grid-area: two;
+//   justify-self: end;
+// `;
+// const GithubBox = styled(StyledBox)`
+//   background-color: blue;
+//   grid-area: three;
+//   align-self: end;
+// `;
+// const SourcererBox = styled(StyledBox)`
+//   background-color: cyan;
+//   grid-area: four;
+//   justify-self: end;
+//   align-self: end;
+// `;
+
