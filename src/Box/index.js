@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState, useContext, createContext } from "react";
 import classNames from "classnames";
 
 import { useClassNameToggle } from "../hooks";
 
-function Box({ className, onClick, children }) {
+const BoxContext = createContext();
+
+function BoxContainer({ children }) {
+  const [clickedBox, setClickedBox] = useState("");
+  const value = { clickedBox, setClickedBox };
+
   return (
-    <div className={classNames("box", className)} onClick={onClick}>
-      {children}
-    </div>
+    <BoxContext.Provider value={value}>
+      <article className="container">{children}</article>
+    </BoxContext.Provider>
+  );
+}
+
+function Box({ name, className, onClick, ...rest }) {
+  const { clickedBox, setClickedBox } = useContext(BoxContext);
+
+  return (
+    <div className={classNames("box", className)} onClick={onClick} {...rest} />
   );
 }
 
@@ -25,7 +38,11 @@ function WritingsBox() {
   const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
   return (
-    <Box className={classNames(["blog", className])} onClick={toggle}>
+    <Box
+      name="WritingsBox"
+      className={classNames(["blog", className])}
+      onClick={toggle}
+    >
       <Title title="Writings" />
       {className && <Body>Box Body~~~</Body>}
     </Box>
@@ -38,7 +55,11 @@ function CreationsBox() {
   const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
   return (
-    <Box className={classNames(["github", className])} onClick={toggle}>
+    <Box
+      name="CreationsBox"
+      className={classNames(["github", className])}
+      onClick={toggle}
+    >
       <Title title="Creations" />
       {className && <Body>GitHub Body~~~</Body>}
     </Box>
@@ -51,7 +72,11 @@ function SocialBox() {
   const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
   return (
-    <Box className={classNames(["social", className])} onClick={toggle}>
+    <Box
+      name="SocialBox"
+      className={classNames(["social", className])}
+      onClick={toggle}
+    >
       <Title title="Social Networking" />
       {className && <Body>GitHub Body~~~</Body>}
     </Box>
@@ -64,7 +89,11 @@ function MiscBox() {
   const { className, toggle } = useClassNameToggle(defaultToggleClassName);
 
   return (
-    <Box className={classNames(["misc", className])} onClick={toggle}>
+    <Box
+      name="MiscBox"
+      className={classNames(["misc", className])}
+      onClick={toggle}
+    >
       <Title title="Miscellaneous" />
       {className && <Body>Miscellaneous Body~~~</Body>}
     </Box>
@@ -72,4 +101,4 @@ function MiscBox() {
 }
 
 // GitHub, Gitlab, CodeSandbox, etc...
-export { WritingsBox, SocialBox, CreationsBox, MiscBox };
+export { BoxContainer, WritingsBox, SocialBox, CreationsBox, MiscBox };

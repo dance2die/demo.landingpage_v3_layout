@@ -1,19 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { WritingsBox, CreationsBox, SocialBox, MiscBox } from "./Box";
+import {
+  BoxContainer,
+  WritingsBox,
+  CreationsBox,
+  SocialBox,
+  MiscBox
+} from "./Box";
 
 import "./styles.scss";
 
 function App() {
   return (
     <section className="layout">
-      <article className="container">
+      <BoxContainer>
         <WritingsBox />
         <CreationsBox />
         <SocialBox />
         <MiscBox />
-      </article>
+      </BoxContainer>
     </section>
   );
 }
