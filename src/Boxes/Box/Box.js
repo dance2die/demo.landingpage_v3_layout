@@ -29,16 +29,15 @@ function Body({ ...rest }) {
   return <section className="body" {...rest} />;
 }
 
-function getBoxClass(boxName) {
-  const { clickedBoxes } = useContext(BoxContext);
-
-  return clickedBoxes[boxName]
-    ? classNames(boxName, "clicked", "shadow")
-    : classNames(boxName);
-}
-
 function Box({ name, title, body }) {
   const { clickedBoxes, setClickedBox } = useContext(BoxContext);
+
+  function getBoxClass(boxName) {
+    return clickedBoxes[boxName]
+      ? classNames(boxName, "clicked", "shadow")
+      : classNames(boxName);
+  }
+
   return (
     <BaseBox
       name={name}
