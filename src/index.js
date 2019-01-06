@@ -22,16 +22,19 @@ import "./styles.scss";
   * ✅ Miscellaneous -> Misc.
 
 * Add details
-  * ️👷‍♂️ Writings
-    * SlightEdgeCoder
-    * Dev.to
-    * Medium
-  * Social
+  * ️✅ Writings
+    * ✅ SlightEdgeCoder
+    * ✅ Dev.to
+    * ✅ Medium
+  * 👷‍♂️ Social
     * Twitter
     * Instagram
     * Youtube
     * Facebook
-  * Creations
+  * ✅ Creations
+    * ✅ GitHub
+    * ✅ GitLab
+    * ✅ CodeSandBox
   * Misc.
     * Twitch
     * Youtube Live

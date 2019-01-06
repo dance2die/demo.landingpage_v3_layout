@@ -130,24 +130,71 @@ function WritingsBox() {
 
 // GitHub, Gitlab, CodeSandbox, etc...
 function CreationsBox() {
+  function Body() {
+    return (
+      <ul>
+        <li>
+          <ExternalLink url="https://github.com/dance2die">
+            <i class="fab fa-github" />
+            GitHub
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink url="https://gitlab.com/dance2die">
+            {/* https://fontawesome.com/icons/dev?style=brands */}
+            <i class="fab fa-gitlab" />
+            GitLab
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink url="https://codesandbox.io/u/dance2die">
+            <i class="fab fa-codepen" />
+            CodeSandBox
+          </ExternalLink>
+        </li>
+      </ul>
+    );
+  }
+
   return (
-    <ClickableBox
-      name={names.CreationsBox}
-      title="Creations"
-      body={<div>Creations Body~~~</div>}
-    />
+    <ClickableBox name={names.CreationsBox} title="Creations" body={<Body />} />
   );
 }
 
 // Social networking sites like Twitter, Instangram, etc...
 function SocialBox() {
-  return (
-    <ClickableBox
-      name={names.SocialBox}
-      title="Social"
-      body={<div>Social Networking Body~~~</div>}
-    />
-  );
+  function Body() {
+    return (
+      <ul>
+        <li>
+          <ExternalLink url="https://twitter.com/dance2die">
+            <i class="fab fa-twitter" />
+            Twitter
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink url="https://www.instagram.com/dance2die/">
+            <i class="fab fa-instagram" />
+            Instagram
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink url="https://www.twitch.tv/dance2die/">
+            <i class="fab fa-twitch" />
+            Twitch
+          </ExternalLink>
+        </li>
+        <li>
+          <ExternalLink url="https://www.youtube.com/channel/UCogIW0rQ1uYQiS9-u9fy1Tg">
+            <i class="fab fa-youtube" />
+            Youtube
+          </ExternalLink>
+        </li>
+      </ul>
+    );
+  }
+
+  return <ClickableBox name={names.SocialBox} title="Social" body={<Body />} />;
 }
 
 // Social networking sites like Twitter, Instangram, etc...
