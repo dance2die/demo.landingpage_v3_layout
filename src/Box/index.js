@@ -116,7 +116,7 @@ function SocialBox() {
   return (
     <ClickableBox
       name={names.SocialBox}
-      title="Social Networking Sites"
+      title="Social"
       body={<div>Social Networking Body~~~</div>}
     />
   );
@@ -127,7 +127,7 @@ function MiscBox() {
   return (
     <ClickableBox
       name={names.MiscBox}
-      title="Miscellaneous"
+      title="Misc."
       body={<div>Miscellaneous Body~~~</div>}
     />
   );

@@ -17,9 +17,9 @@ import "./styles.scss";
   * If already clicked, then unclick before turning into a mobile mode.
 * Update titles
   * ✅ Blog -> Writings
-  * Social Networking Sites -> Social
+  * ✅ Social Networking Sites -> Social
   * ✅ Creations: same
-  * Miscellaneous -> Misc.
+  * ✅ Miscellaneous -> Misc.
 
 * Add details
   * Writings
