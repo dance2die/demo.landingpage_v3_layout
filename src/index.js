@@ -11,6 +11,33 @@ import {
 
 import "./styles.scss";
 
+/*
+@todo
+* box Make boxes unclickable for mobile
+  * If already clicked, then unclick before turning into a mobile mode.
+* Update titles
+  * ✅ Blog -> Writings
+  * Social Networking Sites -> Social
+  * ✅ Creations: same
+  * Miscellaneous -> Misc.
+
+* Add details
+  * Writings
+    * SlightEdgeCoder
+    * Dev.to
+    * Medium
+  * Social
+    * Twitter
+    * Instagram
+    * Youtube
+    * Facebook
+  * Creations
+  * Misc.
+    * Twitch
+    * Youtube Live
+    * Sourcerer.io
+*/
+
 function App() {
   return (
     <section className="layout">
