@@ -32,7 +32,7 @@ function Container({ children }) {
 
   return (
     <BoxContext.Provider value={contextValue}>
-      <article className="container">{children}</article>
+      <article className="box-container">{children}</article>
     </BoxContext.Provider>
   );
 }
