@@ -1,8 +1,6 @@
 $goldenRatio: 1.6180339887498948482;
 $centerHeight: 400;
 $centerWidth: $centerHeight * $goldenRatio;
-// $boxHeight: 100;
-// $boxWidth: $boxHeight * $goldenRatio;
 $boxHeight: 100%;
 $boxWidth: 100%;
 $boxBorderRadius: 6px;
@@ -12,10 +10,7 @@ $box-social-color: blue;
 $box-github-color: green;
 $box-misc-color: cyan;
 
-// @mixin transform($property) {
-//   -webkit-transform: $property;
-//   -ms-transform: $property;
-//   transform: $property;
+// https://sass-lang.com/guide#topic-6
 @mixin onClick() {
   transform: scale(2.5);
   grid-area: boxCenter;
