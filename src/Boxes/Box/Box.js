@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react";
 import classNames from "classnames";
 
 import { default as BoxContext } from "../Context";
-import { default as BoxContainer } from "../Container";
 
 function BaseBox({ name, className, onClick, ...rest }) {
   const { clickedBox } = useContext(BoxContext);
