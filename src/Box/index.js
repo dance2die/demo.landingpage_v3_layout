@@ -7,7 +7,7 @@ const BoxContext = createContext();
 
 const names = {
   WritingsBox: "WritingsBox",
-  CreationsBox: "CreationsBox",
+  DevBox: "DevBox",
   SocialBox: "SocialBox",
   MiscBox: "MiscBox"
 };
@@ -33,7 +33,7 @@ function BoxContainer({ children }) {
     <BoxContext.Provider value={contextValue}>
       <article className="container">
         <WritingsBox />
-        <CreationsBox />
+        <DevBox />
         <SocialBox />
         <MiscBox />
       </article>
@@ -129,7 +129,7 @@ function WritingsBox() {
 }
 
 // GitHub, Gitlab, CodeSandbox, etc...
-function CreationsBox() {
+function DevBox() {
   function Body() {
     return (
       <ul>
@@ -138,12 +138,15 @@ function CreationsBox() {
             <i class="fab fa-github" />
             GitHub
           </ExternalLink>
+          {" & ("}
+          <ExternalLink url="https://sourcerer.io/dance2die">Stat</ExternalLink>
+          )
         </li>
         <li>
-          <ExternalLink url="https://gitlab.com/dance2die">
+          <ExternalLink url="https://stackoverflow.com/users/4035/">
             {/* https://fontawesome.com/icons/dev?style=brands */}
-            <i class="fab fa-gitlab" />
-            GitLab
+            <i class="fab fa-stack-overflow" />
+            StackOverflow
           </ExternalLink>
         </li>
         <li>
@@ -156,9 +159,7 @@ function CreationsBox() {
     );
   }
 
-  return (
-    <ClickableBox name={names.CreationsBox} title="Creations" body={<Body />} />
-  );
+  return <ClickableBox name={names.DevBox} title="Dev" body={<Body />} />;
 }
 
 // Social networking sites like Twitter, Instangram, etc...
@@ -179,6 +180,24 @@ function SocialBox() {
           </ExternalLink>
         </li>
         <li>
+          <ExternalLink url="https://www.reddit.com/user/dance2die">
+            <i class="fab fa-reddit" />
+            Reddit
+          </ExternalLink>
+        </li>
+      </ul>
+    );
+  }
+
+  return <ClickableBox name={names.SocialBox} title="Social" body={<Body />} />;
+}
+
+// Social networking sites like Twitter, Instangram, etc...
+function MiscBox() {
+  function Body() {
+    return (
+      <ul>
+        <li>
           <ExternalLink url="https://www.twitch.tv/dance2die/">
             <i class="fab fa-twitch" />
             Twitch
@@ -194,19 +213,8 @@ function SocialBox() {
     );
   }
 
-  return <ClickableBox name={names.SocialBox} title="Social" body={<Body />} />;
-}
-
-// Social networking sites like Twitter, Instangram, etc...
-function MiscBox() {
-  return (
-    <ClickableBox
-      name={names.MiscBox}
-      title="Misc."
-      body={<div>Miscellaneous Body~~~</div>}
-    />
-  );
+  return <ClickableBox name={names.MiscBox} title="Misc." body={<Body />} />;
 }
 
 // GitHub, Gitlab, CodeSandbox, etc...
-export { BoxContainer, WritingsBox, SocialBox, CreationsBox, MiscBox };
+export { BoxContainer, WritingsBox, SocialBox, DevBox, MiscBox };

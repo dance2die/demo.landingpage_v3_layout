@@ -1,13 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import {
-  BoxContainer,
-  WritingsBox,
-  CreationsBox,
-  SocialBox,
-  MiscBox
-} from "./Box";
+import { BoxContainer, WritingsBox, DevBox, SocialBox, MiscBox } from "./Box";
 
 import "./styles.scss";
 
@@ -26,19 +20,16 @@ import "./styles.scss";
     * ✅ SlightEdgeCoder
     * ✅ Dev.to
     * ✅ Medium
-  * 👷‍♂️ Social
-    * Twitter
-    * Instagram
-    * Youtube
-    * Facebook
-  * ✅ Creations
-    * ✅ GitHub
-    * ✅ GitLab
+  * ✅ Social
+    * ✅ Twitter
+    * ✅ Instagram
+  * ✅ Dev
+    * ✅ GitHub & ✅ Sourcerer.io
+    * ✅ StackOverflow
     * ✅ CodeSandBox
-  * Misc.
+  * 👷‍♂️ Misc.
     * Twitch
     * Youtube Live
-    * Sourcerer.io
 */
 
 function App() {
@@ -46,7 +37,7 @@ function App() {
     <section className="layout">
       <BoxContainer>
         <WritingsBox />
-        <CreationsBox />
+        <DevBox />
         <SocialBox />
         <MiscBox />
       </BoxContainer>
