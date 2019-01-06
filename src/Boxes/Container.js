@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 
 import { default as BoxContext } from "./Context";
 import names from "./names";
+// import { maxMediaWidth } from "../constants";
 
 function Container({ children }) {
   const resetClicked = () =>
@@ -17,6 +18,15 @@ function Container({ children }) {
     const previous = clickedBoxes[boxName];
     setClickedBoxes({ ...resetClicked(), [boxName]: !previous });
   };
+
+  // const resetClickedBoxes = () => setClickedBoxes(resetClicked());
+
+  // useEffect(() => {
+  //   // Unclick all boxes in Mobile mode
+  //   // https://www.w3schools.com/howto/howto_js_media_queries.asp
+  //   const matches = window.matchMedia(`(max-width: ${maxMediaWidth})`);
+  //   if (matches) resetClickedBoxes();
+  // }, []);
 
   const contextValue = { clickedBoxes, setClickedBox };
 
