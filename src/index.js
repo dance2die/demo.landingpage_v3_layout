@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { BoxContainer, WritingsBox, DevBox, SocialBox, MiscBox } from "./Box";
+import { BoxContainer, WritingsBox, DevBox, SocialBox, MiscBox } from "./Boxes";
 
 import "./styles.scss";
 
 /*
 @todo
-* box Make boxes unclickable for mobile
+* 👷‍♂️ box Make boxes unclickable for mobile
   * If already clicked, then unclick before turning into a mobile mode.
-* Update titles
+* ✅ Update titles
   * ✅ Blog -> Writings
   * ✅ Social Networking Sites -> Social
   * ✅ Creations: same
   * ✅ Miscellaneous -> Misc.
 
-* Add details
+* ✅ Add details
   * ️✅ Writings
     * ✅ SlightEdgeCoder
     * ✅ Dev.to
@@ -27,9 +27,9 @@ import "./styles.scss";
     * ✅ GitHub & ✅ Sourcerer.io
     * ✅ StackOverflow
     * ✅ CodeSandBox
-  * 👷‍♂️ Misc.
-    * Twitch
-    * Youtube Live
+  * ✅‍ Misc.
+    * ✅Twitch
+    * ✅ Youtube Live
 */
 
 function App() {
